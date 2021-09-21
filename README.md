@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
-Multicash is a money handling gem that's inherently nice to currencies. It anticipates some cool things you might want to do to your various piles of money. You can instantiate a new `Cash` object like so:
+Multicash is a money handling gem that's inherently nice to currencies. It lets you treat your money as mostly numbers, freeing you from a lot of headache around manipulating and handling it. Instantiate a new `Cash` object like so:
 
 ```ruby
 puts Cash.new(SEK: 100_00)
@@ -63,7 +63,7 @@ puts (Cash.new(SEK: 100_00, USD: 100_00) + 20
 
 I can, in fact, totally add integers to currencies. And now you can, too! Also subtract, divide, multiply... look: this probably sounds bad to you. Foreign, somehow. Your parents raised you well, and you've already used the ubiquitous [Money](https://github.com/RubyMoney/money) gem and tried to add a shipping cost or something. The Money gem then told you to stop immediately and stomped off into Exception Land, leaving you empty-handed and full of regret.
 
-Or maybe you wanted to work with zero? The Money gem acts a little weird around zero, too. You'll get answers on the Internet saying things like "aha but what would zero even mean when using a currency" and my answer to that would be "well at least 0 USD is the same as 0 SEK, right?" and so you can casually do `Cash.new(SEK: 0) + Cash.new(USD: 100)` and get `100 USD` back and then imagine these pedants popping a vein and dying. A zero is a zero, right? Damn straight. Don't try to tell me otherwise.
+Or maybe you wanted to work with zero? You'll get answers on the Internet saying things like "aha but what would zero even mean when using a currency" and my answer to that would be "well at least 0 USD is the same as 0 SEK, right?" and so you can casually do `Cash.new(SEK: 0) + Cash.new(USD: 100)` and get `100 USD` back and then imagine these pedants popping a vein and dying. A zero is a zero. Don't try to tell me otherwise.
 
 ### Can you _really_ compare currencies that way though?
 
