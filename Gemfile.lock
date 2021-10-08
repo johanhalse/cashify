@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    multicash (0.9.1)
+    cashify (0.9.1)
 
 GEM
   remote: https://rubygems.org/
@@ -43,8 +43,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  cashify!
   minitest (~> 5.0)
-  multicash!
   pry
   rake (~> 13.0)
   rubocop

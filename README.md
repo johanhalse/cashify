@@ -1,17 +1,17 @@
-[![Main](https://github.com/johanhalse/multicash/actions/workflows/main.yml/badge.svg)](https://github.com/johanhalse/multicash/actions/workflows/main.yml)
+[![Main](https://github.com/johanhalse/cashify/actions/workflows/main.yml/badge.svg)](https://github.com/johanhalse/cashify/actions/workflows/main.yml)
 
-# Multicash
+# Cashify
 
 Ever had to work with money in more than one currency? Ever wish you could do stuff like add them to one another without getting murdered by exceptions? Here's the gem for you.
 
-![Multicash](https://media4.giphy.com/media/EnoO73pTnn99JrnRR3/giphy.gif)
+![Cashify](https://media4.giphy.com/media/EnoO73pTnn99JrnRR3/giphy.gif)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "multicash"
+gem "cashify"
 ```
 
 And then execute:
@@ -20,11 +20,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install multicash
+    $ gem install cashify
 
 ## Usage
 
-Multicash is a money handling gem that's inherently nice to currencies. It lets you treat your money as mostly numbers, freeing you from a lot of headache around manipulating and handling it. Instantiate a new `Cash` object like so:
+Cashify is a money handling gem that's inherently nice to currencies. It lets you treat your money as mostly numbers, freeing you from a lot of headache around manipulating and handling it. Instantiate a new `Cash` object like so:
 
 ```ruby
 puts Cash.new(SEK: 100_00)
@@ -74,7 +74,7 @@ Cash.new(SEK: 100_00) > Cash.new(USD: 50_00)
 # true
 ```
 
-Is this right or wrong? Who even knows at this point. But it's _useful_, and that's all we care about! I'll agree that the comparison is super naive, and you can Freedom Patch that if you like, or go the Money Gem route and pipe those objects through your own functions. But you see where we're going, right? Wouldn't it be nice to just grab various sums of currencies from your database, cast them to Cash objects, and have them just sort of _work_ without putting up guardrails everywhere? Yes it would. The default assumption of "when you try to add one money to another money that probably means you want a conversion somewhere" is wrong in most cases. Also, initialization matters! Multicash is very database friendly. Imagine a Rails app with `Purchase` objects that all have a cost. Then look at this beauty:
+Is this right or wrong? Who even knows at this point. But it's _useful_, and that's all we care about! I'll agree that the comparison is super naive, and you can Freedom Patch that if you like, or go the Money Gem route and pipe those objects through your own functions. But you see where we're going, right? Wouldn't it be nice to just grab various sums of currencies from your database, cast them to Cash objects, and have them just sort of _work_ without putting up guardrails everywhere? Yes it would. The default assumption of "when you try to add one money to another money that probably means you want a conversion somewhere" is wrong in most cases. Also, initialization matters! Cashify is very database friendly. Imagine a Rails app with `Purchase` objects that all have a cost. Then look at this beauty:
 
 ```ruby
 Cash.new Purchase.all.group(:cost_currency).sum(:cost_cents)
@@ -86,7 +86,7 @@ That piece of code pulls _however many objects in however many currencies_ and t
 
 No, they probably shouldn't. The Money Gem school of thought says that every time you do something potentially hazardous to your money — like try to add an integer, not caring which currency you're dealing with — there's an exception, and then you'll have to handle that exception in a way that makes sense for your use case. I do see the logic, but in practice it gets old REAL fast. You'll be stuck in a never-ending shouting match with your money objects, having to drag them kicking and screaming through a bunch of guard statements in order to do simple things like addition. If you're only dealing with a single currency it's not too bad, but as soon as you add another one to the mix the noise level is deafening. And honestly: if you're only dealing with a single currency, why are you even using a money gem? You could use fixed point integers instead, pushing any currency-specific stuff to the boundaries of your code.
 
-This in mind, Multicash posits that if you want to get these things right, you should be treating your money as simple numbers as often as possible. Currencies are a necessary evil but they're not your overarching concern, and this gem will allow them to lurk in the background where they belong. Throw those Cash objects around, stuff them into arrays, collide them in interesting ways. Swim around in your money like you're Scrooge McDuck and let your database do most of the work for you! It'll feel great, I promise.
+This in mind, Cashify posits that if you want to get these things right, you should be treating your money as simple numbers as often as possible. Currencies are a necessary evil but they're not your overarching concern, and this gem will allow them to lurk in the background where they belong. Throw those Cash objects around, stuff them into arrays, collide them in interesting ways. Swim around in your money like you're Scrooge McDuck and let your database do most of the work for you! It'll feel great, I promise.
 
 ### Do you handle displaying currencies nicely, too?
 
@@ -220,7 +220,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/johanhalse/multicash.
+Bug reports and pull requests are welcome on GitHub at https://github.com/johanhalse/cashify.
 
 ## License
 

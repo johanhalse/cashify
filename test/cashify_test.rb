@@ -1,9 +1,9 @@
 require_relative "test_helper"
 require "pry"
 
-class MulticashTest < Minitest::Test # rubocop:disable Metrics/ClassLength
+class CashifyTest < Minitest::Test # rubocop:disable Metrics/ClassLength
   def test_that_it_has_a_version_number
-    refute_nil ::Multicash::VERSION
+    refute_nil ::Cashify::VERSION
   end
 
   def test_can_be_initialized_with_both_keyword_and_hash

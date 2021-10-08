@@ -1,22 +1,22 @@
-require_relative "lib/multicash/version"
+require_relative "lib/cashify/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "multicash"
-  spec.version       = Multicash::VERSION
+  spec.name          = "cashify"
+  spec.version       = Cashify::VERSION
   spec.authors       = ["Johan Halse"]
   spec.email         = ["johan@hal.se"]
 
   spec.summary       = "A sensible way to handle money"
   spec.description   = "Money trouble no more! Add, subtract, and have fun with money in different currencies."
-  spec.homepage      = "https://github.com/johanhalse/multicash"
+  spec.homepage      = "https://github.com/johanhalse/cashify"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/johanhalse/multicash"
-  spec.metadata["changelog_uri"] = "https://github.com/johanhalse/multicash/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/johanhalse/cashify"
+  spec.metadata["changelog_uri"] = "https://github.com/johanhalse/cashify/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

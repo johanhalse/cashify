@@ -1,12 +1,12 @@
-require_relative "multicash/version"
-require_relative "multicash/arithmetic"
-require_relative "multicash/errors"
+require_relative "cashify/version"
+require_relative "cashify/arithmetic"
+require_relative "cashify/errors"
 
 if defined?(::Rails::Railtie)
-  require_relative "multicash/cashify"
+  require_relative "cashify/cashify"
 
-  class MulticashRailtie < Rails::Railtie
-    initializer "multicash.configure_rails_initialization" do
+  class CashifyRailtie < Rails::Railtie
+    initializer "cashify.configure_rails_initialization" do
       ActiveSupport.on_load(:active_record) do
         ::ActiveRecord::Base.include(Cash::Cashify)
       end

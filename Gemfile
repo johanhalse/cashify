@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in multicash.gemspec
+# Specify your gem's dependencies in cashify.gemspec
 gemspec
 
 gem "minitest", "~> 5.0"
