@@ -2,6 +2,18 @@ require_relative "multicash/version"
 require_relative "multicash/arithmetic"
 require_relative "multicash/errors"
 
+if defined?(::Rails::Railtie)
+  require_relative "multicash/cashify"
+
+  class MulticashRailtie < Rails::Railtie
+    initializer "multicash.configure_rails_initialization" do
+      ActiveSupport.on_load(:active_record) do
+        ::ActiveRecord::Base.include(Cash::Cashify)
+      end
+    end
+  end
+end
+
 class Cash
   include Cash::Arithmetic
   include Cash::Errors
