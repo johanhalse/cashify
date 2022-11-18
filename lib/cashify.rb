@@ -69,6 +69,10 @@ class Cash
     currencies.map { |k, v| "#{(v * 0.01).round} #{k}" }.join(", ")
   end
 
+  def to_delimited_s
+    currencies.map { |k, v| "#{(v * 0.01).round.to_formatted_s(:delimited, delimiter: " ")} #{k}" }.join(", ")
+  end
+
   def currency
     currencies.keys.first
   end

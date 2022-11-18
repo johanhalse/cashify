@@ -72,12 +72,12 @@ class Cash
       return currencies if other.zero?
       return other.currencies.transform_values { |v| 0 - v } if zero?
 
-      (@currencies.keys + other.currencies.keys).uniq.map do |k|
+      (@currencies.keys + other.currencies.keys).uniq.to_h do |k|
         minuend = @currencies[k] || 0
         subtrahend = other.currencies[k] || 0
 
         [k, minuend - subtrahend]
-      end.to_h
+      end
     end
   end
 end

@@ -1,3 +1,7 @@
+## [0.9.2] - 2022-11-18
+
+- Add `to_delimited_s` method (Johan Halse)
+
 ## [0.9.1] - 2021-10-08
 
 - Add `cashify` method for Active Record users (Johan Halse)
