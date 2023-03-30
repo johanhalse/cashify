@@ -25,10 +25,6 @@ class Cash
     new(USD: 0)
   end
 
-  def self.sum(cashes)
-    cashes.inject(Cash.zero, :+)
-  end
-
   def initialize(**currencies)
     @currencies = currencies
                   .transform_keys(&:to_sym)

@@ -321,6 +321,13 @@ class CashifyTest < Minitest::Test # rubocop:disable Metrics/ClassLength
   def test_can_sum_an_array_of_cashes
     cashes = [Cash.new(SEK: 100), Cash.new(SEK: 100), Cash.new(USD: 100)]
 
-    assert_equal(Cash.sum(cashes), Cash.new(SEK: 200, USD: 100))
+    assert_equal(cashes.sum, Cash.new(SEK: 200, USD: 100))
+  end
+
+  def test_can_coerce_when_number_is_first
+    cash = Cash.new(SEK: 150_00, USD: 100_00)
+
+    assert_equal(2 * cash, Cash.new(SEK: 300_00, USD: 200_00))
+    assert_equal(100_00 + cash, Cash.new(SEK: 250_00, USD: 200_00))
   end
 end

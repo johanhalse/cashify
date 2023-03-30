@@ -161,15 +161,6 @@ Cash.new(EUR: 100_00, SEK: 100_00, USD: 100_00).to_s
 # "100 EUR, 100 SEK, 100 USD"
 ```
 
-#### `.sum`
-
-You'll be working with arrays of Cash objects a lot. You should absolutely be using Ruby's excellent array methods on them, but unfortunately `cash_array.sum` won't work. Ruby's `sum` method injects a `0` as the first value, and even though `Cash.new(USD: 100) + 0` is super valid and nice, `0 + Cash.new(USD: 100)` will try to coerce your Cash object into an integer which just won't work. So if you want to sum an array of Cash, you can instead use:
-
-```ruby
-Cash.sum [Cash.new(EUR: 100_00), Cash.new(SEK: 100_00), Cash.new(EUR: 100_00)]
-# 200 EUR, 100 SEK
-```
-
 #### `.empty?`
 
 Returns true if there are no currencies in the object.

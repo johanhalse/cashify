@@ -1,5 +1,9 @@
 class Cash
   module Arithmetic
+    def coerce(other)
+      [self, other]
+    end
+
     def +(other)
       raise Cash::Errors::AdditionError unless other.respond_to?(:zero?)
       return self unless present?(other)
